@@ -10,6 +10,15 @@ import os
 import hashlib
 from datetime import date
 import calendar
+from collections import Counter, defaultdict
+import math
+from PyPDF2 import PdfReader
+import io
+from typing import List
+import fitz  # PyMuPDF
+from PIL import Image
+import pytesseract
+
 
 # ================================
 # CONFIGURATION FLAGS
@@ -107,32 +116,55 @@ def normalize(text):
     return text.strip()
 
 
-def extract_text_from_doc(path):
+def extract_text_from_doc(
+    path: str,
+    use_ocr: bool = True,
+    show_page_text: bool = False,
+    ocr_dpi: int = 300
+) -> List[str]:
     """
     Extracts text from each page of a PDF document.
 
     - Tries to extract machine-readable text using PyMuPDF.
-    - Falls back to OCR using pytesseract if text is empty and USE_OCR is True.
+    - Falls back to OCR using pytesseract if text is empty and use_ocr is True.
     - Converts all text to lowercase.
-    - Optionally prints page text if SHOW_PAGE_TEXT is True.
+    - Optionally prints page text if show_page_text is True.
 
     Args:
         path (str): The file path to the input PDF.
+        use_ocr (bool): Whether to run OCR on pages with no text.
+        show_page_text (bool): Whether to print each page’s text.
+        ocr_dpi (int): DPI to render pages for OCR (higher = better quality).
 
     Returns:
         List[str]: A list of page-level text strings.
     """
-    doc = fitz.open(path)
-    text_pages = []
-    for i, page in enumerate(doc):
-        text = page.get_text()
-        if not text.strip() and USE_OCR:
-            img = page.get_pixmap().pil_tobytes(format="PNG")
-            text = pytesseract.image_to_string(img)
-        text = text.lower()
-        text_pages.append(text)
-        if SHOW_PAGE_TEXT:
-            print(f"--- Page {i+1} ---\n{text}\n--------------------")
+    text_pages: List[str] = []
+
+    with fitz.open(path) as doc:
+        for i, page in enumerate(doc, start=1):
+            try:
+                # 1) Native text extraction
+                raw = page.get_text().strip()
+
+                # 2) Fallback to OCR if needed
+                if not raw and use_ocr:
+                    pix = page.get_pixmap(dpi=ocr_dpi)
+                    img = Image.open(io.BytesIO(pix.tobytes()))
+                    raw = pytesseract.image_to_string(img).strip()
+
+                # Normalize
+                text = raw.lower()
+            except Exception as e:
+                # Log & continue
+                print(f"[Warning] page {i} extraction failed: {e}")
+                text = ""
+            # print(f"{text}")
+            text_pages.append(text)
+
+            if show_page_text:
+                print(f"--- Page {i} ---\n{text}\n--------------------")
+
     return text_pages
 
 
@@ -252,6 +284,7 @@ def generate_signature(entry):
             if key == "Delivery Note Date":
                 for seg in date_variants(val):
                     seg_norm = seg.lower().strip()
+                    # print(f"  • Date segment: {seg_norm}")
                     if len(seg_norm) < MIN_SEGMENT_LENGTH:
                         continue
                     signature.append((key, seg_norm))
@@ -272,8 +305,6 @@ def generate_signature(entry):
                         continue
                     signature.append((key, segment))
     return signature
-
-
 
 def match_with_weights(signature, text):
     """
@@ -309,8 +340,11 @@ def match_with_weights(signature, text):
     total_score = 0
     field_scores = {}
     for field, (seg, score) in best_per_field.items():
-        weight = FIELD_WEIGHTS.get(field, 1) if USE_FIELD_WEIGHTS else 1
-        total_score += score * weight
+        base_w = FIELD_WEIGHTS.get(field, 1) if USE_FIELD_WEIGHTS else 1
+        # boost/attenuate by IDF
+        # idf = IDF_WEIGHTS.get((field, seg), 1.0)
+        w = base_w * 1
+        total_score += score * w
         match_list.append((field, seg, score))
         field_scores[field] = score
 
@@ -457,6 +491,7 @@ def process_pdf_pagewise(pdf_path, references):
             matches = top_k_matches(references, text, RETURN_TOP_K, CONFIDENCE_THRESHOLD)
             if matches:
                 score, mlist, entry = matches[0]
+                print(f"📄 Page {idx}: MATCH FOUND with score {score}")
                 mblnr, mjahr = entry['MBLNR'], entry['MJAHR']
             else:
                 # sliding-window fallback
@@ -472,7 +507,7 @@ def process_pdf_pagewise(pdf_path, references):
                     current_text = text  # current page text
                     
                     prev_map = to_score_map(top_k_matches(references, prev_text, RETURN_TOP_K))
-                    current_map = to_score_map(top_k_matches(references, current_text, RETURN_TOP_K, 300))
+                    current_map = to_score_map(top_k_matches(references, current_text, 2, 300))
                     
                     summed = []
                     for mblnr in set(prev_map) | set(current_map):
@@ -486,7 +521,7 @@ def process_pdf_pagewise(pdf_path, references):
                         best_sum, best_mblnr = max(summed, key=lambda x: x[0])
                         if SHOW_RANKING_FULL:
                             print(f"  • Best sum: {best_sum} for MBLNR={best_mblnr}")
-                        if best_sum >= CONFIDENCE_THRESHOLD:
+                        if best_sum >= CONFIDENCE_THRESHOLD + 400:
                             mblnr, mjahr = best_mblnr, last_mjahr
                             found = True
                             window_candidates.append((best_sum, best_mblnr, mjahr))
@@ -497,7 +532,7 @@ def process_pdf_pagewise(pdf_path, references):
                     current_text = texts[idx-1]  # current page text
                     next_text = pages[idx]  # next page text
                     next_map = to_score_map(top_k_matches(references, next_text, RETURN_TOP_K))
-                    current_map = to_score_map(top_k_matches(references, current_text, RETURN_TOP_K, 300))
+                    current_map = to_score_map(top_k_matches(references, current_text, 2, 300))
                     summed = []
                     for mblnr in set(next_map) | set(current_map):
                         if current_map.get(mblnr, 0) < 300:
@@ -556,6 +591,9 @@ def process_pdf_pagewise(pdf_path, references):
                      f"Pages: {[p['page'] for p in page_info]}\nBlocks: {blocks}\n")
     return blocks
 
+# with open(REFERENCE_JSON_PATH, 'r', encoding='utf-8') as f:
+#         references = json.load(f)
+# IDF_WEIGHTS = compute_idf_weights(references)
 
 def main():
     with open(REFERENCE_JSON_PATH, 'r', encoding='utf-8') as f:
@@ -579,149 +617,153 @@ def main_test():
     if len(sys.argv) > 1:
         pdf_path = sys.argv[1]
     else:
-        pdf_path = PDF_TEST
+        pdf_path = PDF_PATH
     
     result = []
     current = None
-
-    # Load reference data
     with open(REFERENCE_JSON_PATH, "r", encoding="utf-8") as f:
         references = json.load(f)
-
-    # Extract text per page
-    pages = extract_text_from_doc(pdf_path)
-    print("📊 Pages:", len(pages))
-    
-    texts = []
-
-    # Detect and report total page count if possible
-    detected_count = detect_page_count(pages)
-    if detected_count:
-        print("📌 Detected Page Count from text:", detected_count)
         
-    blacklist = []
+    for pdf_file in os.listdir(pdf_path):
+        if not pdf_file.lower().endswith('.pdf'):
+            continue
+        pdf_path_join = os.path.join(pdf_path, pdf_file)
+        print(f"Processing {pdf_file}...")
 
-    # Filter out any pages likely to be AGB/annex
-    filtered_pages = []
-    for i, p in enumerate(pages, start=1):
-        if is_probable_agb_page(p):
-            print(f"📝 Skipping page {i}: probable AGB/annex")
-            blacklist.append(i)
-        else:
-            filtered_pages.append((i, p))
+        # Extract text per page
+        pages = extract_text_from_doc(pdf_path_join)
+        print("📊 Pages:", len(pages))
+        
+        texts = []
 
-    # Optional regex-based “quick hits” on entire doc
-    if USE_REGEX_EXTRACTION:
-        full_text = "\n".join(p for _, p in filtered_pages)
-        print("🔎 Extracted Fields (regex on full doc):")
-        for k, v in extract_known_fields(full_text).items():
-            print(f"  - {k}: {v}")
+        # Detect and report total page count if possible
+        detected_count = detect_page_count(pages)
+        if detected_count:
+            print("📌 Detected Page Count from text:", detected_count)
             
-    # ── Matching logic ──
-    if PROCESS_PAGEWISE and len(filtered_pages) > 1:
-        # Page-level matching: report true/false per page
-        for page_num, text in filtered_pages:
-            texts.append(text)
-            matches = top_k_matches(references, text, RETURN_TOP_K)
-            hit = len(matches) > 0
-            print(f"📄 Page {page_num}: {'MATCH FOUND' if hit else 'no match'}")
-            if hit and SHOW_RANKING:
-                for rank, (score, mlist, entry) in enumerate(matches, start=1):
-                    print(f"  Rank {rank} | Score {score} | MBLNR={entry['MBLNR']}")
-            elif hit == False:
+        blacklist = []
+
+        # Filter out any pages likely to be AGB/annex
+        filtered_pages = []
+        for i, p in enumerate(pages, start=1):
+            if is_probable_agb_page(p):
+                print(f"📝 Skipping page {i}: probable AGB/annex")
+                blacklist.append(i)
+            else:
+                filtered_pages.append((i, p))
+
+        # Optional regex-based “quick hits” on entire doc
+        if USE_REGEX_EXTRACTION:
+            full_text = "\n".join(p for _, p in filtered_pages)
+            print("🔎 Extracted Fields (regex on full doc):")
+            for k, v in extract_known_fields(full_text).items():
+                print(f"  - {k}: {v}")
+                
+        # ── Matching logic ──
+        if PROCESS_PAGEWISE and len(filtered_pages) > 1:
+            # Page-level matching: report true/false per page
+            for page_num, text in filtered_pages:
+                texts.append(text)
+                matches = top_k_matches(references, text, RETURN_TOP_K)
+                hit = len(matches) > 0
+                print(f"📄 Page {page_num}: {'MATCH FOUND' if hit else 'no match'}")
+                if hit and SHOW_RANKING:
+                    for rank, (score, mlist, entry) in enumerate(matches, start=1):
+                        print(f"  Rank {rank} | Score {score} | MBLNR={entry['MBLNR']}")
+                elif hit == False:
+                    print("⚠️ No high-confidence matches on full document. Falling back to page windows…")
+
+                    # Gather all candidate windows that produced at least one match
+                    window_candidates = []
+
+                    def to_score_map(ms):
+                        return { e["MBLNR"]: sc for sc, _, e in ms }
+
+                    # --- prev + curr ---
+                    if page_num > 0:
+                        print(f"🔍 Scoring page {page_num-1} (prev) + {page_num} (curr)")
+                        #print(texts[-2])
+                        prev_map = to_score_map(top_k_matches(references, texts[-2], RETURN_TOP_K))
+                        print(f"  • Previous page {page_num-1} matches: {prev_map}")
+                        curr_map = to_score_map(top_k_matches(references, text, RETURN_TOP_K, 300))
+                        print(f"  • Current page {page_num} matches: {curr_map}")
+                        summed = []
+                        for mblnr in set(prev_map) | set(curr_map):
+                            s = prev_map.get(mblnr, 0) + curr_map.get(mblnr, 0)
+                            summed.append((s, mblnr))
+                            print(f"  • {mblnr}: prev={prev_map.get(mblnr,0)}, curr={curr_map.get(mblnr,0)}, sum={s}")
+                        if summed:
+                            best_sum, best_mblnr = max(summed, key=lambda x: x[0])
+                            print(f"  • Best sum: {best_sum} for MBLNR={best_mblnr}")
+                            window_candidates.append(((page_num-1, page_num), best_mblnr, best_sum))
+
+                    # --- curr + next ---
+                    if page_num < len(pages):
+                        print(f"🔍 Scoring page {page_num} (curr) + {page_num+1} (next)")
+                        correct_page_number = page_num
+                        for i, p in enumerate(blacklist):
+                            if p < correct_page_number:
+                                correct_page_number -= 1
+                        print(f"  • Corrected page number: {correct_page_number}")
+                        next_map = to_score_map(top_k_matches(references, filtered_pages[correct_page_number], RETURN_TOP_K))
+                        print(f"  • Next page {correct_page_number} matches: {next_map}")
+                        curr_map = to_score_map(top_k_matches(references, text, RETURN_TOP_K, 300))
+                        print(f"  • Current page {page_num} matches: {curr_map}")
+                        summed = []
+                        for mblnr in set(curr_map) | set(next_map):
+                            s = curr_map.get(mblnr,0) + next_map.get(mblnr,0)
+                            summed.append((s, mblnr))
+                            print(f"  • {mblnr}: curr={curr_map.get(mblnr,0)}, next={next_map.get(mblnr,0)}, sum={s}")
+                        if summed:
+                            best_sum, best_mblnr = max(summed, key=lambda x: x[0])
+                            print(f"  • Best sum: {best_sum} for MBLNR={best_mblnr}")
+                            window_candidates.append(((page_num, page_num+1), best_mblnr, best_sum))
+
+                    # pick the best neighbor-sum
+                    if window_candidates:
+                        print("\n🔍 Best neighbor matches:")
+                        print(f"{window_candidates}")
+                        pages_used, best_matches, best_score = max(window_candidates, key=lambda x: x[2])
+                        print(f"Best match: {best_score}")
+                        # print(f"  Pages {pages_used[0]}–{pages_used[1]}: combined score={best_score}")
+                        if best_score >= CONFIDENCE_THRESHOLD:
+                            print(f"\n✅ Best neighbor match pages {pages_used[0]}–{pages_used[1]}: combined score={best_score}")
+                            continue
+                
+        else:
+            # Full-document matching (original behavior)
+            full_text = "\n".join(p for _, p in filtered_pages)
+            top_matches = top_k_matches(references, full_text, RETURN_TOP_K, confidence_threshold=300)
+
+            print("\n🏁 Final Top Matches:")
+            if not top_matches:
                 print("⚠️ No high-confidence matches on full document. Falling back to page windows…")
+                hit = False
 
-                # Gather all candidate windows that produced at least one match
-                window_candidates = []
-
-                def to_score_map(ms):
-                    return { e["MBLNR"]: sc for sc, _, e in ms }
-
-                # --- prev + curr ---
-                if page_num > 0:
-                    print(f"🔍 Scoring page {page_num-1} (prev) + {page_num} (curr)")
-                    #print(texts[-2])
-                    prev_map = to_score_map(top_k_matches(references, texts[-2], RETURN_TOP_K))
-                    print(f"  • Previous page {page_num-1} matches: {prev_map}")
-                    curr_map = to_score_map(top_k_matches(references, text, RETURN_TOP_K, 300))
-                    print(f"  • Current page {page_num} matches: {curr_map}")
-                    summed = []
-                    for mblnr in set(prev_map) | set(curr_map):
-                        s = prev_map.get(mblnr, 0) + curr_map.get(mblnr, 0)
-                        summed.append((s, mblnr))
-                        print(f"  • {mblnr}: prev={prev_map.get(mblnr,0)}, curr={curr_map.get(mblnr,0)}, sum={s}")
-                    if summed:
-                        best_sum, best_mblnr = max(summed, key=lambda x: x[0])
-                        print(f"  • Best sum: {best_sum} for MBLNR={best_mblnr}")
-                        window_candidates.append(((page_num-1, page_num), best_mblnr, best_sum))
-
-                # --- curr + next ---
-                if page_num < len(pages):
-                    print(f"🔍 Scoring page {page_num} (curr) + {page_num+1} (next)")
-                    correct_page_number = page_num
-                    for i, p in enumerate(blacklist):
-                        if p < correct_page_number:
-                            correct_page_number -= 1
-                    print(f"  • Corrected page number: {correct_page_number}")
-                    next_map = to_score_map(top_k_matches(references, filtered_pages[correct_page_number], RETURN_TOP_K))
-                    print(f"  • Next page {correct_page_number} matches: {next_map}")
-                    curr_map = to_score_map(top_k_matches(references, text, RETURN_TOP_K, 300))
-                    print(f"  • Current page {page_num} matches: {curr_map}")
-                    summed = []
-                    for mblnr in set(curr_map) | set(next_map):
-                        s = curr_map.get(mblnr,0) + next_map.get(mblnr,0)
-                        summed.append((s, mblnr))
-                        print(f"  • {mblnr}: curr={curr_map.get(mblnr,0)}, next={next_map.get(mblnr,0)}, sum={s}")
-                    if summed:
-                        best_sum, best_mblnr = max(summed, key=lambda x: x[0])
-                        print(f"  • Best sum: {best_sum} for MBLNR={best_mblnr}")
-                        window_candidates.append(((page_num, page_num+1), best_mblnr, best_sum))
-
-                # pick the best neighbor-sum
-                if window_candidates:
-                    print("\n🔍 Best neighbor matches:")
-                    print(f"{window_candidates}")
-                    pages_used, best_matches, best_score = max(window_candidates, key=lambda x: x[2])
-                    print(f"Best match: {best_score}")
-                    # print(f"  Pages {pages_used[0]}–{pages_used[1]}: combined score={best_score}")
-                    if best_score >= CONFIDENCE_THRESHOLD:
-                        print(f"\n✅ Best neighbor match pages {pages_used[0]}–{pages_used[1]}: combined score={best_score}")
-                        continue
-            
-    else:
-        # Full-document matching (original behavior)
-        full_text = "\n".join(p for _, p in filtered_pages)
-        top_matches = top_k_matches(references, full_text, RETURN_TOP_K, confidence_threshold=300)
-
-        print("\n🏁 Final Top Matches:")
-        if not top_matches:
-            print("⚠️ No high-confidence matches on full document. Falling back to page windows…")
-            hit = False
-
-            # Sliding window over pages
-            for window_size in range(MIN_WINDOW_SIZE, MAX_WINDOW_SIZE + 1):
-                print(f"\n🔍 Trying window size = {window_size} pages:")
-                # slide window over filtered_pages
-                for idx in range(len(filtered_pages) - window_size + 1):
-                    page_nums, texts = zip(*filtered_pages[idx : idx + window_size])
-                    combined = "\n".join(texts)
-                    matches = top_k_matches(references, combined, RETURN_TOP_K)
-                    if matches:
-                        hit = True
-                        window_str = f"pages {page_nums[0]}–{page_nums[-1]}"
-                        print(f"✅ Match found on {window_str}:")
-                        _print_matches(matches, indent="  ")
+                # Sliding window over pages
+                for window_size in range(MIN_WINDOW_SIZE, MAX_WINDOW_SIZE + 1):
+                    print(f"\n🔍 Trying window size = {window_size} pages:")
+                    # slide window over filtered_pages
+                    for idx in range(len(filtered_pages) - window_size + 1):
+                        page_nums, texts = zip(*filtered_pages[idx : idx + window_size])
+                        combined = "\n".join(texts)
+                        matches = top_k_matches(references, combined, RETURN_TOP_K)
+                        if matches:
+                            hit = True
+                            window_str = f"pages {page_nums[0]}–{page_nums[-1]}"
+                            print(f"✅ Match found on {window_str}:")
+                            _print_matches(matches, indent="  ")
+                            break
+                    if hit:
                         break
-                if hit:
-                    break
-        else:
-            for i, (score, matches, entry) in enumerate(top_matches, start=1):
-                print(f"\nRank {i} | Score: {score}")
-                print(json.dumps({k: entry[k] for k in ('MBLNR', 'MJAHR')}, indent=2))
-                print("Matched Fields:")
-                for f, val, s in matches:
-                    weight = FIELD_WEIGHTS.get(f, 1)
-                    print(f"  - {f} | '{val}' | Score: {s} | Weight: {weight}")
+            else:
+                for i, (score, matches, entry) in enumerate(top_matches, start=1):
+                    print(f"\nRank {i} | Score: {score}")
+                    print(json.dumps({k: entry[k] for k in ('MBLNR', 'MJAHR')}, indent=2))
+                    print("Matched Fields:")
+                    for f, val, s in matches:
+                        weight = FIELD_WEIGHTS.get(f, 1)
+                        print(f"  - {f} | '{val}' | Score: {s} | Weight: {weight}")
 
     # Log debug output for the first few pages
     log_content = f"PDF: {pdf_path}\nFiltered Pages: {[n for n,_ in filtered_pages]}\n"
