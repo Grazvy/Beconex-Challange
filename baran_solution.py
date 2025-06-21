@@ -21,7 +21,7 @@ import calendar
 # PDF_PATH_Batch = "batch.pdf"  # Default batch PDF for processing multiple documents
 
 
-PDF_PATH = "solution/batch_5_2022_2_merged.pdf"
+PDF_PATH = "solution/superbatch_merged.pdf"  # Default PDF for single document processing
 REFERENCE_JSON_PATH = "data/SAP_data.json"
 LOG_DIR = "debug_logs"
 OUTPUT_JSON = "output.json"
