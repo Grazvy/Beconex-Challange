@@ -30,7 +30,7 @@ import pytesseract
 # PDF_PATH_Batch = "batch.pdf"  # Default batch PDF for processing multiple documents
 
 
-PDF_PATH = "solution/superbatch_merged.pdf"  # Default PDF for single document processing
+PDF_PATH = "data/full.pdf"  # Default PDF for single document processing
 REFERENCE_JSON_PATH = "data/SAP_data.json"
 LOG_DIR = "debug_logs"
 OUTPUT_JSON = "output.json"
@@ -228,11 +228,16 @@ def date_variants(iso_datetime_str):
     day, mon, year = dt.day, dt.month, dt.year
     # numeric
     yield f"{day:02d}.{mon:02d}.{year}"
+    yield f"{day:02d}.{mon:02d}. {year}"
     yield f"{day:02d}-{mon:02d}-{year}"
     yield f"{day:02d}/{mon:02d}/{str(year)[2:]}"  # two-digit year
     # German month‐name with dot
     yield f"{day}. {calendar.month_name[mon]} {year}"
     yield f"{day}. {calendar.month_name[mon][:3]} {year}"
+    # True German month names
+    yield f"{day}. {"Januar"} {year}"
+    
+    
     # English month‐day
     yield f"{calendar.month_name[mon]} {day}, {year}"
     yield f"{calendar.month_name[mon][:3]} {day}, {year}"
@@ -666,7 +671,7 @@ def main_test():
                 texts.append(text)
                 matches = top_k_matches(references, text, RETURN_TOP_K)
                 hit = len(matches) > 0
-                print(f"📄 Page {page_num}: {'MATCH FOUND' if hit else 'no match'}")
+                # print(f"📄 Page {page_num}: {'MATCH FOUND' if hit else 'no match'}")
                 if hit and SHOW_RANKING:
                     for rank, (score, mlist, entry) in enumerate(matches, start=1):
                         print(f"  Rank {rank} | Score {score} | MBLNR={entry['MBLNR']}")
