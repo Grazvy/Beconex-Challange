@@ -101,7 +101,7 @@ def process_batch_folder(batch_folder_path, sap_json_path, output_pdf_path, outp
 
 if __name__ == "__main__":
     # Beispielkonfiguration
-    batch_dir = "data/batch_7_2023_2024"
+    batch_dir = "data/superbatch"
     sap_json = "data/SAP_data.json"
     
     # Extract batch_id from batch_dir
