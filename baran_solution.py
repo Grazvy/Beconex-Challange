@@ -21,7 +21,7 @@ import calendar
 # PDF_PATH_Batch = "batch.pdf"  # Default batch PDF for processing multiple documents
 
 
-PDF_BATCH = ""
+PDF_PATH = "data/batch_1_2017_2018.pdf"
 REFERENCE_JSON_PATH = "data/SAP_data.json"
 LOG_DIR = "debug_logs"
 OUTPUT_JSON = "output.json"
@@ -361,9 +361,10 @@ def log_debug_output(filename, content):
         filename (str): The name of the file to write.
         content (str): The textual content to save.
     """
-    os.makedirs(LOG_DIR, exist_ok=True)
-    with open(os.path.join(LOG_DIR, filename), "w", encoding="utf-8") as f:
-        f.write(content)
+    pass
+    # os.makedirs(LOG_DIR, exist_ok=True)
+    # with open(os.path.join(LOG_DIR, filename), "w", encoding="utf-8") as f:
+    #     f.write(content)
 
 
 def top_k_matches(entries, text, k=3, confidence_threshold=CONFIDENCE_THRESHOLD):
