@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "batch_1_2017_2018": [
     {
@@ -7,10 +6,11 @@
       "company_name": "Easydisplay GmbH",
       "address": "Vinnhorster Weg 137",
       "date": "2018-10-22",
-      "company_prefix": "Easydisplay GmbH",
+      "company_prefix": "Easydis",
       "zip_code": "not known",
       "MJAHR": "2018",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049000823
     },
     {
@@ -19,10 +19,11 @@
       "company_name": "PP 2000 Business Integration AG",
       "address": "not known",
       "date": "2018-07-09",
-      "company_prefix": "PP 2000 Business Integration AG",
+      "company_prefix": "PP 2000",
       "zip_code": "70435",
       "MJAHR": "2018",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049000818
     },
     {
@@ -31,10 +32,11 @@
       "company_name": "not known",
       "address": "not known",
       "date": "not known",
-      "company_prefix": "not known",
+      "company_prefix": "PP 2000",
       "zip_code": "not known",
       "MJAHR": "not known",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": "not known"
     },
     {
@@ -43,10 +45,11 @@
       "company_name": "PP 2000 Business Integration AG",
       "address": "Schwieberdinger Str. 60",
       "date": "2018-01-16",
-      "company_prefix": "PP 2000 Business Integration AG",
+      "company_prefix": "PP 2000",
       "zip_code": "not known",
       "MJAHR": "2018",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049000806
     },
     {
@@ -55,10 +58,11 @@
       "company_name": "not known",
       "address": "not known",
       "date": "not known",
-      "company_prefix": "not known",
+      "company_prefix": "PP 2000",
       "zip_code": "not known",
       "MJAHR": "not known",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": "not known"
     },
     {
@@ -67,11 +71,12 @@
       "company_name": "not known",
       "address": "not known",
       "date": "not known",
-      "company_prefix": "not known",
+      "company_prefix": "Amazon ",
       "zip_code": "not known",
       "MJAHR": "not known",
-      "Seite": "Seite 1 vo",
-      "MBLNR": "not known"
+      "Seite": "1",
+      "is_header_page": 0,
+      "MBLNR": 5049000798
     },
     {
       "page": 7,
@@ -79,11 +84,12 @@
       "company_name": "not known",
       "address": "not known",
       "date": "not known",
-      "company_prefix": "not known",
+      "company_prefix": "Amazon ",
       "zip_code": "not known",
       "MJAHR": "not known",
-      "Seite": "Seite 2 vo",
-      "MBLNR": "not known"
+      "Seite": "2",
+      "is_header_page": 0,
+      "MBLNR": 5049000798
     },
     {
       "page": 8,
@@ -91,10 +97,11 @@
       "company_name": "ALTERNATE GmbH",
       "address": "not known",
       "date": "2018-12-17",
-      "company_prefix": "ALTERNATE GmbH",
+      "company_prefix": "ALTERNA",
       "zip_code": "35440",
       "MJAHR": "2018",
-      "Seite": "Seite \n111",
+      "Seite": "",
+      "is_header_page": 1,
       "MBLNR": 5049000832
     },
     {
@@ -107,6 +114,7 @@
       "zip_code": "not known",
       "MJAHR": "2018",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": "not known"
     },
     {
@@ -115,10 +123,11 @@
       "company_name": "ALTERNATE GmbH",
       "address": "Philipp-Reis-Straße 2-3",
       "date": "2018-12-17",
-      "company_prefix": "ALTERNATE GmbH",
+      "company_prefix": "ALTERNA",
       "zip_code": "not known",
       "MJAHR": "2018",
-      "Seite": "Seite 1 \n1",
+      "Seite": "1",
+      "is_header_page": 1,
       "MBLNR": 5049000841
     },
     {
@@ -131,6 +140,7 @@
       "zip_code": "not known",
       "MJAHR": "2018",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": "not known"
     },
     {
@@ -139,10 +149,11 @@
       "company_name": "HOLTZ OFFICE SUPPORT GmbH",
       "address": "Berta-Cramer-Ring 14-16",
       "date": "2017-03-03",
-      "company_prefix": "HOLTZ OFFICE SUPPORT GmbH",
+      "company_prefix": "HOLTZ O",
       "zip_code": "not known",
       "MJAHR": "2017",
-      "Seite": "Seite \nVer",
+      "Seite": "",
+      "is_header_page": 1,
       "MBLNR": 5049000775
     },
     {
@@ -151,10 +162,11 @@
       "company_name": "CDS Service GmbH",
       "address": "Edisonstrasse 19",
       "date": "2017-05-24",
-      "company_prefix": "CDS Service GmbH",
+      "company_prefix": "CDS Ser",
       "zip_code": "not known",
       "MJAHR": "2017",
-      "Seite": "Seite 1 vo",
+      "Seite": "1",
+      "is_header_page": 1,
       "MBLNR": 5049000781
     },
     {
@@ -163,10 +175,11 @@
       "company_name": "HJH Office GmbH",
       "address": "Mainzer Str. 178",
       "date": "2018-12-21",
-      "company_prefix": "HJH Office GmbH",
+      "company_prefix": "HJH Off",
       "zip_code": "not known",
       "MJAHR": "2018",
-      "Seite": "Seite 1 vo",
+      "Seite": "1",
+      "is_header_page": 1,
       "MBLNR": 5049000858
     },
     {
@@ -175,10 +188,11 @@
       "company_name": "Nie.Ha Joachim Niebur Handel",
       "address": "not known",
       "date": "2017-06-30",
-      "company_prefix": "Nie.Ha Joachim Niebur Handel",
+      "company_prefix": "Amazon ",
       "zip_code": "13089",
       "MJAHR": "2017",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": "not known"
     },
     {
@@ -187,10 +201,11 @@
       "company_name": "PHS-electronic GmbH",
       "address": "Karl-Gotz-Str. 5",
       "date": "2018-12-17",
-      "company_prefix": "PHS-electronic GmbH",
+      "company_prefix": "PHS-ele",
       "zip_code": "not known",
       "MJAHR": "2018",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049000847
     }
   ],
@@ -201,10 +216,11 @@
       "company_name": "Silkes Weinkeller GmbH",
       "address": "Gold-Zack-Str. 9",
       "date": "2019-07-12",
-      "company_prefix": "Silkes Weinkeller GmbH",
+      "company_prefix": "Silkes ",
       "zip_code": "not known",
       "MJAHR": "2019",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049000884
     },
     {
@@ -213,10 +229,11 @@
       "company_name": "Silkes Weinkeller GmbH",
       "address": "not known",
       "date": "2019-07-12",
-      "company_prefix": "Silkes Weinkeller GmbH",
+      "company_prefix": "Silkes ",
       "zip_code": "not known",
       "MJAHR": "2019",
-      "Seite": "Seite 2 /2",
+      "Seite": "2/2",
+      "is_header_page": 0,
       "MBLNR": 5049000884
     },
     {
@@ -225,10 +242,11 @@
       "company_name": "Vodafone GmbH bei Arvato distribution GmbH",
       "address": "Bielefelder Str. 45",
       "date": "2020-12-30",
-      "company_prefix": "Vodafone GmbH bei Arvato distribution GmbH",
+      "company_prefix": "Vodafon",
       "zip_code": "not known",
       "MJAHR": "2020",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049000976
     },
     {
@@ -237,10 +255,11 @@
       "company_name": "Vodafone GmbH bei Arvato distribution GmbH",
       "address": "Bielefelder Str. 45",
       "date": "2020-11-19",
-      "company_prefix": "Vodafone GmbH bei Arvato distribution GmbH",
+      "company_prefix": "Vodafon",
       "zip_code": "not known",
       "MJAHR": "2020",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049000969
     },
     {
@@ -249,10 +268,11 @@
       "company_name": "D.A.S.S. GmbH",
       "address": "Gretlade 2",
       "date": "2020-05-26",
-      "company_prefix": "D.A.S.S. GmbH",
+      "company_prefix": "Amazon ",
       "zip_code": "not known",
       "MJAHR": "2020",
-      "Seite": "Seite \n738",
+      "Seite": "",
+      "is_header_page": 0,
       "MBLNR": 5049000927
     },
     {
@@ -261,10 +281,11 @@
       "company_name": "ALTERNATE GmbH",
       "address": "Philipp-Reis-Straße 2-3",
       "date": "2019-12-06",
-      "company_prefix": "ALTERNATE GmbH",
+      "company_prefix": "ALTERNA",
       "zip_code": "not known",
       "MJAHR": "2019",
-      "Seite": "Seite 1 \n1",
+      "Seite": "1",
+      "is_header_page": 1,
       "MBLNR": 5049000911
     },
     {
@@ -277,6 +298,7 @@
       "zip_code": "not known",
       "MJAHR": "2019",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": "not known"
     },
     {
@@ -285,10 +307,11 @@
       "company_name": "Konica Minolta Business Solutions Deutschland GmbH",
       "address": "not known",
       "date": "not known",
-      "company_prefix": "Konica Minolta Business Solutions Deutschland GmbH",
+      "company_prefix": "Office ",
       "zip_code": "not known",
       "MJAHR": "not known",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": "not known"
     },
     {
@@ -297,10 +320,11 @@
       "company_name": "PHS-electronic GmbH",
       "address": "Karl-Gotz-Str. 5",
       "date": "2019-12-02",
-      "company_prefix": "PHS-electronic GmbH",
+      "company_prefix": "PHS-ele",
       "zip_code": "not known",
       "MJAHR": "2019",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049000905
     },
     {
@@ -309,10 +333,11 @@
       "company_name": "Cyberport GmbH",
       "address": "Am Brauhaus 5",
       "date": "2020-05-27",
-      "company_prefix": "Cyberport GmbH",
+      "company_prefix": "Cyberpo",
       "zip_code": "not known",
       "MJAHR": "2020",
-      "Seite": "Seite 1 I ",
+      "Seite": "1",
+      "is_header_page": 1,
       "MBLNR": 5049000937
     },
     {
@@ -321,10 +346,11 @@
       "company_name": "iFixit GmbH",
       "address": "Traenkestr. 7",
       "date": "2019-12-08",
-      "company_prefix": "iFixit GmbH",
+      "company_prefix": "iFixit ",
       "zip_code": "not known",
       "MJAHR": "2019",
-      "Seite": "Seite 2019",
+      "Seite": "2019",
+      "is_header_page": 1,
       "MBLNR": 5049000920
     },
     {
@@ -333,10 +359,11 @@
       "company_name": "TAROX Marketplace GmbH",
       "address": "not known",
       "date": "2020-10-19",
-      "company_prefix": "TAROX Marketplace GmbH",
+      "company_prefix": "TAROX M",
       "zip_code": "44536",
       "MJAHR": "2020",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049000959
     },
     {
@@ -349,6 +376,7 @@
       "zip_code": "82064",
       "MJAHR": "2019",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049000889
     },
     {
@@ -361,6 +389,7 @@
       "zip_code": "not known",
       "MJAHR": "not known",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": "not known"
     },
     {
@@ -369,10 +398,11 @@
       "company_name": "Ecron e.K.",
       "address": "not known",
       "date": "2019-04-05",
-      "company_prefix": "Ecron e.K.",
+      "company_prefix": "Ecron e",
       "zip_code": "57334",
       "MJAHR": "2019",
-      "Seite": "Seite 1 vo",
+      "Seite": "1",
+      "is_header_page": 1,
       "MBLNR": 5049000875
     },
     {
@@ -381,10 +411,11 @@
       "company_name": "Jacob Elektronik GmbH",
       "address": "not known",
       "date": "2020-10-15",
-      "company_prefix": "Jacob Elektronik GmbH",
+      "company_prefix": "Jacob E",
       "zip_code": "76229",
       "MJAHR": "2020",
-      "Seite": "Seite: 1 /",
+      "Seite": ":1/",
+      "is_header_page": 0,
       "MBLNR": 5049000948
     }
   ],
@@ -395,11 +426,12 @@
       "company_name": "VINELLO retail GmbH",
       "address": "Barensteiner Straße 30",
       "date": "not known",
-      "company_prefix": "VINELLO retail GmbH",
+      "company_prefix": "Interne",
       "zip_code": "not known",
       "MJAHR": "not known",
-      "Seite": "Seite 1 vo",
-      "MBLNR": "not known"
+      "Seite": "1",
+      "is_header_page": 0,
+      "MBLNR": 5049001109
     },
     {
       "page": 2,
@@ -407,10 +439,11 @@
       "company_name": "Elatec GmbH",
       "address": "not known",
       "date": "2021-08-09",
-      "company_prefix": "Elatec GmbH",
+      "company_prefix": "Elatec ",
       "zip_code": "62178",
       "MJAHR": "2021",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049001071
     },
     {
@@ -419,10 +452,11 @@
       "company_name": "DATEV eG",
       "address": "not known",
       "date": "2021-01-25",
-      "company_prefix": "not known",
+      "company_prefix": "Interne",
       "zip_code": "90329",
       "MJAHR": "2021",
-      "Seite": "Seite:1 vo",
+      "Seite": ":1",
+      "is_header_page": 0,
       "MBLNR": 5049000984
     },
     {
@@ -431,10 +465,11 @@
       "company_name": "Trading EU GmbH",
       "address": "not known",
       "date": "2021-02-11",
-      "company_prefix": "Trading EU GmbH",
+      "company_prefix": "Interne",
       "zip_code": "85461",
       "MJAHR": "2021",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049001004
     },
     {
@@ -443,11 +478,12 @@
       "company_name": "Silkes Weinkeller GmbH",
       "address": "Gold-Zack-Str. 9",
       "date": "2020-05-27",
-      "company_prefix": "Silkes Weinkeller GmbH",
+      "company_prefix": "Silkes ",
       "zip_code": "not known",
       "MJAHR": "2020",
       "Seite": "not known",
-      "MBLNR": "not known"
+      "is_header_page": 1,
+      "MBLNR": 5049001059
     },
     {
       "page": 6,
@@ -455,10 +491,11 @@
       "company_name": "Cyclotron ITK GmbH",
       "address": "not known",
       "date": "2021-03-17",
-      "company_prefix": "Cyclotron ITK GmbH",
+      "company_prefix": "Cyclotr",
       "zip_code": "65205",
       "MJAHR": "2021",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001027
     },
     {
@@ -467,10 +504,11 @@
       "company_name": "visunext International GmbH & Co. KG",
       "address": "not known",
       "date": "2021-03-26",
-      "company_prefix": "visunext International GmbH & Co. KG",
+      "company_prefix": "Interne",
       "zip_code": "48282",
       "MJAHR": "2021",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049001032
     },
     {
@@ -479,10 +517,11 @@
       "company_name": "HALM Straws GmbH",
       "address": "not known",
       "date": "2021-12-06",
-      "company_prefix": "HALM Straws GmbH",
+      "company_prefix": "HALM St",
       "zip_code": "10249",
       "MJAHR": "2021",
-      "Seite": "Seite 1 vo",
+      "Seite": "1",
+      "is_header_page": 1,
       "MBLNR": 5049001105
     },
     {
@@ -491,10 +530,11 @@
       "company_name": "TAROX Marketplace GmbH",
       "address": "not known",
       "date": "2021-04-16",
-      "company_prefix": "TAROX Marketplace GmbH",
+      "company_prefix": "TAROX M",
       "zip_code": "44536",
       "MJAHR": "2021",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001051
     },
     {
@@ -506,7 +546,8 @@
       "company_prefix": "not known",
       "zip_code": "41189",
       "MJAHR": "2021",
-      "Seite": "Seite: 1 /",
+      "Seite": ":1/",
+      "is_header_page": 0,
       "MBLNR": 5049001068
     },
     {
@@ -515,10 +556,11 @@
       "company_name": "MMS E-Commerce GmbH",
       "address": "not known",
       "date": "2021-11-17",
-      "company_prefix": "MMS E-Commerce GmbH",
+      "company_prefix": "MMS E-C",
       "zip_code": "85046",
       "MJAHR": "2021",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049001086
     },
     {
@@ -527,11 +569,12 @@
       "company_name": "Telekom Deutschland GmbH",
       "address": "W.G.Freund Str. 4",
       "date": "not known",
-      "company_prefix": "Telekom Deutschland GmbH",
+      "company_prefix": "Telekom",
       "zip_code": "not known",
       "MJAHR": "not known",
-      "Seite": "Seite 1 \nI",
-      "MBLNR": "not known"
+      "Seite": "1",
+      "is_header_page": 1,
+      "MBLNR": 5049001075
     },
     {
       "page": 13,
@@ -539,10 +582,11 @@
       "company_name": "Office Partner GmbH",
       "address": "Schlesierring 35",
       "date": "2021-11-24",
-      "company_prefix": "Office Partner GmbH",
+      "company_prefix": "Office ",
       "zip_code": "not known",
       "MJAHR": "2021",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001093
     },
     {
@@ -551,10 +595,11 @@
       "company_name": "page one GmbH",
       "address": "not known",
       "date": "2021-02-10",
-      "company_prefix": "page one GmbH",
+      "company_prefix": "page on",
       "zip_code": "90439",
       "MJAHR": "2021",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049000992
     },
     {
@@ -563,10 +608,11 @@
       "company_name": "page one GmbH",
       "address": "not known",
       "date": "2021-01-08",
-      "company_prefix": "page one GmbH",
+      "company_prefix": "page on",
       "zip_code": "90439",
       "MJAHR": "2021",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049000979
     }
   ],
@@ -577,10 +623,11 @@
       "company_name": "Internetstores GmbH",
       "address": "not known",
       "date": "2022-07-19",
-      "company_prefix": "Internetstores GmbH",
+      "company_prefix": "Interne",
       "zip_code": "70174",
       "MJAHR": "2022",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001181
     },
     {
@@ -589,10 +636,11 @@
       "company_name": "Vodafone GmbH bei Arvato SCS SE",
       "address": "Bielefelder Str. 45",
       "date": "2022-03-17",
-      "company_prefix": "Vodafone GmbH bei Arvato SCS SE",
+      "company_prefix": "Vodafon",
       "zip_code": "not known",
       "MJAHR": "2022",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049001126
     },
     {
@@ -601,10 +649,11 @@
       "company_name": "Vodafone GmbH bei Arvato distribution GmbH",
       "address": "Bielefelder Str. 45",
       "date": "not known",
-      "company_prefix": "Vodafone GmbH bei Arvato distribution GmbH",
+      "company_prefix": "Vodafon",
       "zip_code": "not known",
       "MJAHR": "not known",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": "not known"
     },
     {
@@ -613,10 +662,11 @@
       "company_name": "office discount GmbH",
       "address": "not known",
       "date": "2022-09-15",
-      "company_prefix": "office discount GmbH",
+      "company_prefix": "Office ",
       "zip_code": "85374",
       "MJAHR": "2022",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001197
     },
     {
@@ -625,10 +675,11 @@
       "company_name": "office discount GmbH",
       "address": "not known",
       "date": "2022-09-15",
-      "company_prefix": "office discount GmbH",
+      "company_prefix": "Office ",
       "zip_code": "85374",
       "MJAHR": "2022",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001197
     },
     {
@@ -637,11 +688,12 @@
       "company_name": "Fashion ID GmbH & Co. KG",
       "address": "not known",
       "date": "2022-05-10",
-      "company_prefix": "Fashion ID GmbH & Co. KG",
+      "company_prefix": "Fashion",
       "zip_code": "40212",
       "MJAHR": "2022",
-      "Seite": "Seite: 1/1",
-      "MBLNR": "not known"
+      "Seite": ":1/1",
+      "is_header_page": 0,
+      "MBLNR": 5049001139
     },
     {
       "page": 7,
@@ -649,10 +701,11 @@
       "company_name": "Hummelladen Dipl. Ing. Mehmet Guler",
       "address": "Siemensstrasse 7",
       "date": "2022-06-07",
-      "company_prefix": "Hummelladen Dipl. Ing. Mehmet Guler",
+      "company_prefix": "Hummell",
       "zip_code": "not known",
       "MJAHR": "2022",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001150
     },
     {
@@ -661,10 +714,11 @@
       "company_name": "D-Trust GmbH",
       "address": "Kommandantenstr 15",
       "date": "2022-04-25",
-      "company_prefix": "D-Trust GmbH",
+      "company_prefix": "D-Trust",
       "zip_code": "not known",
       "MJAHR": "2022",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049001135
     },
     {
@@ -677,6 +731,7 @@
       "zip_code": "82064",
       "MJAHR": "2022",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001192
     },
     {
@@ -685,11 +740,12 @@
       "company_name": "Xstra Digital Storage B.V.",
       "address": "Het Goorke 61",
       "date": "not known",
-      "company_prefix": "Xstra Digital Storage B.V.",
+      "company_prefix": "Xstra D",
       "zip_code": "not known",
       "MJAHR": "not known",
       "Seite": "not known",
-      "MBLNR": "not known"
+      "is_header_page": 0,
+      "MBLNR": 5049001165
     },
     {
       "page": 11,
@@ -697,10 +753,11 @@
       "company_name": "DATEV eG",
       "address": "not known",
       "date": "2022-07-06",
-      "company_prefix": "not known",
+      "company_prefix": "Interne",
       "zip_code": "90329",
       "MJAHR": "2022",
-      "Seite": "Seite:1 vo",
+      "Seite": ":1",
+      "is_header_page": 0,
       "MBLNR": 5049001173
     },
     {
@@ -709,10 +766,11 @@
       "company_name": "A.F. International UG",
       "address": "not known",
       "date": "2022-09-20",
-      "company_prefix": "A.F. International UG",
+      "company_prefix": "Amazon ",
       "zip_code": "6773",
       "MJAHR": "2022",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049001211
     },
     {
@@ -721,10 +779,11 @@
       "company_name": "not known",
       "address": "not known",
       "date": "2022-03-05",
-      "company_prefix": "not known",
+      "company_prefix": "Interne",
       "zip_code": "not known",
       "MJAHR": "2022",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001115
     },
     {
@@ -733,10 +792,11 @@
       "company_name": "not known",
       "address": "not known",
       "date": "2022-03-05",
-      "company_prefix": "not known",
+      "company_prefix": "Axel Sp",
       "zip_code": "not known",
       "MJAHR": "2022",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001115
     },
     {
@@ -745,10 +805,11 @@
       "company_name": "Schnaeppchenladen24 GmbH",
       "address": "Aubinger Str. 5",
       "date": "2022-09-20",
-      "company_prefix": "Schnaeppchenladen24 GmbH",
+      "company_prefix": "Amazon ",
       "zip_code": "not known",
       "MJAHR": "2022",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001207
     }
   ],
@@ -759,10 +820,11 @@
       "company_name": "Kll Ersatzteilshop GmbH",
       "address": "Am Gottesacker 16",
       "date": "2022-12-31",
-      "company_prefix": "Kll Ersatzteilshop GmbH",
+      "company_prefix": "Kll Ers",
       "zip_code": "not known",
       "MJAHR": "2022",
-      "Seite": "Seite 1 vo",
+      "Seite": "1",
+      "is_header_page": 0,
       "MBLNR": 5049001320
     },
     {
@@ -771,11 +833,12 @@
       "company_name": "not known",
       "address": "not known",
       "date": "not known",
-      "company_prefix": "not known",
+      "company_prefix": "Domo Er",
       "zip_code": "not known",
       "MJAHR": "not known",
       "Seite": "not known",
-      "MBLNR": "not known"
+      "is_header_page": 0,
+      "MBLNR": 5049001275
     },
     {
       "page": 3,
@@ -783,10 +846,11 @@
       "company_name": "Cyberport GmbH",
       "address": "Am Brauhaus 5",
       "date": "2022-10-06",
-      "company_prefix": "Cyberport GmbH",
+      "company_prefix": "Cyberpo",
       "zip_code": "not known",
       "MJAHR": "2022",
-      "Seite": "Seite 1 \nI",
+      "Seite": "1",
+      "is_header_page": 0,
       "MBLNR": 5049001216
     },
     {
@@ -795,10 +859,11 @@
       "company_name": "Heimwerkertools Handels GmbH",
       "address": "Gewerbepark 7",
       "date": "2022-12-07",
-      "company_prefix": "Heimwerkertools Handels GmbH",
+      "company_prefix": "Office ",
       "zip_code": "not known",
       "MJAHR": "2022",
-      "Seite": "Seite 1 vo",
+      "Seite": "1",
+      "is_header_page": 0,
       "MBLNR": 5049001283
     },
     {
@@ -807,10 +872,11 @@
       "company_name": "Heimwerkertools Handels GmbH",
       "address": "Gewerbepark 7",
       "date": "2022-10-10",
-      "company_prefix": "Heimwerkertools Handels GmbH",
+      "company_prefix": "Office ",
       "zip_code": "not known",
       "MJAHR": "2022",
-      "Seite": "Seite 1 vo",
+      "Seite": "1",
+      "is_header_page": 1,
       "MBLNR": 5049001225
     },
     {
@@ -819,11 +885,12 @@
       "company_name": "frottana Textil GmbH & Co KG",
       "address": "not known",
       "date": "2020-10-19",
-      "company_prefix": "frottana Textil GmbH & Co KG",
+      "company_prefix": "frottan",
       "zip_code": "2779",
       "MJAHR": "2020",
       "Seite": "not known",
-      "MBLNR": "not known"
+      "is_header_page": 1,
+      "MBLNR": 5049001236
     },
     {
       "page": 7,
@@ -831,10 +898,11 @@
       "company_name": "not known",
       "address": "not known",
       "date": "2022-10-31",
-      "company_prefix": "not known",
+      "company_prefix": "Vodafon",
       "zip_code": "40549",
       "MJAHR": "2022",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049001243
     },
     {
@@ -843,10 +911,11 @@
       "company_name": "Vodafone GmbH bei Arvato distribution GmbH",
       "address": "Bielefelder Str. 45",
       "date": "not known",
-      "company_prefix": "Vodafone GmbH bei Arvato distribution GmbH",
+      "company_prefix": "Vodafon",
       "zip_code": "not known",
       "MJAHR": "not known",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": "not known"
     },
     {
@@ -855,10 +924,11 @@
       "company_name": "Weinober UG (haftungsbeschrankt)",
       "address": "Westring 102",
       "date": "2022-12-15",
-      "company_prefix": "Weinober UG (haftungsbeschrankt)",
+      "company_prefix": "Weinobe",
       "zip_code": "not known",
       "MJAHR": "2022",
-      "Seite": "Seite 1 vo",
+      "Seite": "1",
+      "is_header_page": 0,
       "MBLNR": 5049001292
     },
     {
@@ -867,10 +937,11 @@
       "company_name": "arktis.de GmbH",
       "address": "Gordenhegge 8",
       "date": "2022-11-02",
-      "company_prefix": "arktis.de GmbH",
+      "company_prefix": "arktis.",
       "zip_code": "not known",
       "MJAHR": "2022",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049001248
     },
     {
@@ -879,10 +950,11 @@
       "company_name": "office discount GmbH",
       "address": "not known",
       "date": "2022-12-21",
-      "company_prefix": "office discount GmbH",
+      "company_prefix": "Office ",
       "zip_code": "85374",
       "MJAHR": "2022",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001310
     },
     {
@@ -891,10 +963,11 @@
       "company_name": "office discount GmbH",
       "address": "not known",
       "date": "2022-12-21",
-      "company_prefix": "office discount GmbH",
+      "company_prefix": "Office ",
       "zip_code": "85374",
       "MJAHR": "2022",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001310
     },
     {
@@ -903,10 +976,11 @@
       "company_name": "Telekom Deutschland GmbH",
       "address": "not known",
       "date": "2022-12-04",
-      "company_prefix": "Telekom Deutschland GmbH",
+      "company_prefix": "Telekom",
       "zip_code": "6188",
       "MJAHR": "2022",
-      "Seite": "Seite 1 \nB",
+      "Seite": "1",
+      "is_header_page": 1,
       "MBLNR": 5049001266
     },
     {
@@ -915,10 +989,11 @@
       "company_name": "frottana Textil GmbH & Co KG",
       "address": "not known",
       "date": "2022-12-15",
-      "company_prefix": "frottana Textil GmbH & Co KG",
+      "company_prefix": "frottan",
       "zip_code": "2779",
       "MJAHR": "2022",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049001300
     },
     {
@@ -927,10 +1002,11 @@
       "company_name": "hygi.de GmbH & Co. KG",
       "address": "not known",
       "date": "2022-12-20",
-      "company_prefix": "hygi.de GmbH & Co. KG",
+      "company_prefix": "hygi.de",
       "zip_code": "48283",
       "MJAHR": "2022",
-      "Seite": "Seite: \nPo",
+      "Seite": ":",
+      "is_header_page": 1,
       "MBLNR": 5049001307
     }
   ],
@@ -941,10 +1017,11 @@
       "company_name": "not known",
       "address": "not known",
       "date": "2023-04-15",
-      "company_prefix": "not known",
+      "company_prefix": "Interne",
       "zip_code": "not known",
       "MJAHR": "2023",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001354
     },
     {
@@ -953,10 +1030,11 @@
       "company_name": "not known",
       "address": "not known",
       "date": "2023-04-15",
-      "company_prefix": "not known",
+      "company_prefix": "Axel Sp",
       "zip_code": "not known",
       "MJAHR": "2023",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001354
     },
     {
@@ -965,10 +1043,11 @@
       "company_name": "BALTECH AG",
       "address": "Lilienthalstrasse 27",
       "date": "2023-09-08",
-      "company_prefix": "BALTECH AG",
+      "company_prefix": "BALTECH",
       "zip_code": "not known",
       "MJAHR": "2023",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001420
     },
     {
@@ -977,10 +1056,11 @@
       "company_name": "Indy lmaging-Ireland Ltd/Kofax",
       "address": "70 Sir Jam-Rogerson's Quay",
       "date": "2023-03-01",
-      "company_prefix": "Indy lmaging-Ireland Ltd/Kofax",
+      "company_prefix": "Indy lm",
       "zip_code": "not known",
       "MJAHR": "2023",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001343
     },
     {
@@ -989,11 +1069,12 @@
       "company_name": "BAUHAUS E-Business GmbH & Co. KG",
       "address": "Bergener Ring  610",
       "date": "not known",
-      "company_prefix": "BAUHAUS E-Business GmbH & Co. KG",
+      "company_prefix": "BAUHAUS",
       "zip_code": "not known",
       "MJAHR": "not known",
-      "Seite": "Seite 1/1 ",
-      "MBLNR": "not known"
+      "Seite": "1/1",
+      "is_header_page": 0,
+      "MBLNR": 5049001372
     },
     {
       "page": 6,
@@ -1001,10 +1082,11 @@
       "company_name": "PROCAVE GmbH",
       "address": "not known",
       "date": "2023-06-26",
-      "company_prefix": "PROCAVE GmbH",
+      "company_prefix": "PROCAVE",
       "zip_code": "99094",
       "MJAHR": "2023",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049001381
     },
     {
@@ -1013,10 +1095,11 @@
       "company_name": "ComputerUniverse GmbH",
       "address": "not known",
       "date": "2023-07-05",
-      "company_prefix": "ComputerUniverse GmbH",
+      "company_prefix": "Compute",
       "zip_code": "61169",
       "MJAHR": "2023",
-      "Seite": "Seite 1 vo",
+      "Seite": "1",
+      "is_header_page": 1,
       "MBLNR": 5049001396
     },
     {
@@ -1025,11 +1108,12 @@
       "company_name": "ComputerUniverse GmbH",
       "address": "not known",
       "date": "2023-07-05",
-      "company_prefix": "ComputerUniverse GmbH",
+      "company_prefix": "Compute",
       "zip_code": "61169",
       "MJAHR": "2023",
       "Seite": "not known",
-      "MBLNR": "not known"
+      "is_header_page": 0,
+      "MBLNR": 5049001396
     },
     {
       "page": 9,
@@ -1037,10 +1121,11 @@
       "company_name": "ComputerUniverse GmbH",
       "address": "not known",
       "date": "2023-07-05",
-      "company_prefix": "ComputerUniverse GmbH",
+      "company_prefix": "Compute",
       "zip_code": "61169",
       "MJAHR": "2023",
       "Seite": "not known",
+      "is_header_page": 1,
       "MBLNR": 5049001407
     },
     {
@@ -1049,10 +1134,11 @@
       "company_name": "De'Longhi Appliances S.r.l.",
       "address": "Via L. Seitz 47",
       "date": "2023-07-05",
-      "company_prefix": "De'Longhi Appliances S.r.l.",
+      "company_prefix": "De'Long",
       "zip_code": "not known",
       "MJAHR": "2023",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001387
     },
     {
@@ -1061,10 +1147,11 @@
       "company_name": "office discount GmbH",
       "address": "not known",
       "date": "2023-01-23",
-      "company_prefix": "office discount GmbH",
+      "company_prefix": "Office ",
       "zip_code": "85374",
       "MJAHR": "2023",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001331
     },
     {
@@ -1073,10 +1160,11 @@
       "company_name": "office discount GmbH",
       "address": "not known",
       "date": "2023-01-23",
-      "company_prefix": "office discount GmbH",
+      "company_prefix": "Office ",
       "zip_code": "85374",
       "MJAHR": "2023",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001331
     },
     {
@@ -1089,6 +1177,7 @@
       "zip_code": "82064",
       "MJAHR": "2023",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001417
     },
     {
@@ -1097,10 +1186,11 @@
       "company_name": "Cyberport GmbH",
       "address": "Am Brauhaus 5",
       "date": "2023-05-04",
-      "company_prefix": "Cyberport GmbH",
+      "company_prefix": "Cyberpo",
       "zip_code": "not known",
       "MJAHR": "2023",
-      "Seite": "Seite 6068",
+      "Seite": "6068",
+      "is_header_page": 1,
       "MBLNR": 5049001363
     }
   ],
@@ -1111,10 +1201,11 @@
       "company_name": "not known",
       "address": "not known",
       "date": "2024-12-13",
-      "company_prefix": "not known",
+      "company_prefix": "ALTERNA",
       "zip_code": "35440",
       "MJAHR": "2024",
-      "Seite": "Seite 1 vo",
+      "Seite": "1",
+      "is_header_page": 1,
       "MBLNR": 5049001493
     },
     {
@@ -1126,7 +1217,8 @@
       "company_prefix": "not known",
       "zip_code": "not known",
       "MJAHR": "2024",
-      "Seite": "Seite 1 vo",
+      "Seite": "1",
+      "is_header_page": 0,
       "MBLNR": "not known"
     },
     {
@@ -1135,10 +1227,11 @@
       "company_name": "not known",
       "address": "not known",
       "date": "2024-10-16",
-      "company_prefix": "not known",
+      "company_prefix": "ALTERNA",
       "zip_code": "22549",
       "MJAHR": "2024",
       "Seite": "not known",
+      "is_header_page": 0,
       "MBLNR": 5049001472
     },
     {
@@ -1147,10 +1240,11 @@
       "company_name": "not known",
       "address": "not known",
       "date": "2024-12-19",
-      "company_prefix": "not known",
+      "company_prefix": "Interne",
       "zip_code": "not known",
       "MJAHR": "2024",
-      "Seite": "Seite 1 \n4",
+      "Seite": "1",
+      "is_header_page": 0,
       "MBLNR": 5049001500
     },
     {
@@ -1159,10 +1253,11 @@
       "company_name": "Ark Computer-Produkte GmbH",
       "address": "not known",
       "date": "2023-12-14",
-      "company_prefix": "Ark Computer-Produkte GmbH",
+      "company_prefix": "Compute",
       "zip_code": "71106",
       "MJAHR": "2023",
-      "Seite": "Seite I \n1",
+      "Seite": "",
+      "is_header_page": 1,
       "MBLNR": 5049001448
     },
     {
@@ -1171,10 +1266,11 @@
       "company_name": "Cyberport SE",
       "address": "Am Brauhaus 5",
       "date": "2023-12-20",
-      "company_prefix": "Cyberport SE",
+      "company_prefix": "Cyberpo",
       "zip_code": "not known",
       "MJAHR": "2023",
-      "Seite": "Seite 1 / ",
+      "Seite": "1/",
+      "is_header_page": 1,
       "MBLNR": 5049001457
     },
     {
@@ -1183,10 +1279,11 @@
       "company_name": "Labelident GmbH",
       "address": "not known",
       "date": "2024-10-23",
-      "company_prefix": "Labelident GmbH",
+      "company_prefix": "Interne",
       "zip_code": "97424",
       "MJAHR": "2024",
-      "Seite": "Seite 1 vo",
+      "Seite": "1",
+      "is_header_page": 1,
       "MBLNR": 5049001479
     },
     {
@@ -1198,7 +1295,8 @@
       "company_prefix": "not known",
       "zip_code": "not known",
       "MJAHR": "not known",
-      "Seite": "Seite 1 vo",
+      "Seite": "1",
+      "is_header_page": 0,
       "MBLNR": "not known"
     },
     {
@@ -1207,10 +1305,11 @@
       "company_name": "Cyberport SE",
       "address": "Am Brauhaus 5",
       "date": "2023-10-20",
-      "company_prefix": "Cyberport SE",
+      "company_prefix": "Cyberpo",
       "zip_code": "not known",
       "MJAHR": "2023",
-      "Seite": "Seite 1 \nL",
+      "Seite": "1",
+      "is_header_page": 1,
       "MBLNR": 5049001430
     },
     {
@@ -1219,430 +1318,12 @@
       "company_name": "Foto Erhardt GmbH",
       "address": "Gartenkamp 101",
       "date": "2023-12-10",
-      "company_prefix": "Foto Erhardt GmbH",
+      "company_prefix": "Interne",
       "zip_code": "not known",
       "MJAHR": "2023",
-      "Seite": "Seite: 1 \n",
+      "Seite": ":1",
+      "is_header_page": 1,
       "MBLNR": 5049001439
     }
   ]
 }
-=======
-[
-  {
-    "Page of batch where document starts": 1,
-    "MBLNR": 5049000775,
-    "MJAHR": 2017
-  },
-  {
-    "Page of batch where document starts": 2,
-    "MBLNR": 5049000781,
-    "MJAHR": 2017
-  },
-  {
-    "Page of batch where document starts": 3,
-    "MBLNR": 5049000798,
-    "MJAHR": 2017
-  },
-  {
-    "Page of batch where document starts": 5,
-    "MBLNR": 5049000791,
-    "MJAHR": 2017
-  },
-  {
-    "Page of batch where document starts": 6,
-    "MBLNR": 5049000806,
-    "MJAHR": 2018
-  },
-  {
-    "Page of batch where document starts": 8,
-    "MBLNR": 5049000818,
-    "MJAHR": 2018
-  },
-  {
-    "Page of batch where document starts": 10,
-    "MBLNR": 5049000823,
-    "MJAHR": 2018
-  },
-  {
-    "Page of batch where document starts": 11,
-    "MBLNR": 5049000832,
-    "MJAHR": 2018
-  },
-  {
-    "Page of batch where document starts": 13,
-    "MBLNR": 5049000841,
-    "MJAHR": 2018
-  },
-  {
-    "Page of batch where document starts": 15,
-    "MBLNR": 5049000847,
-    "MJAHR": 2018
-  },
-  {
-    "Page of batch where document starts": 16,
-    "MBLNR": 5049000858,
-    "MJAHR": 2018
-  },
-  {
-    "Page of batch where document starts": 17,
-    "MBLNR": 5049000875,
-    "MJAHR": 2019
-  },
-  {
-    "Page of batch where document starts": 18,
-    "MBLNR": 5049000884,
-    "MJAHR": 2019
-  },
-  {
-    "Page of batch where document starts": 20,
-    "MBLNR": 5049000889,
-    "MJAHR": 2019
-  },
-  {
-    "Page of batch where document starts": 21,
-    "MBLNR": -1,
-    "MJAHR": -1
-  },
-  {
-    "Page of batch where document starts": 23,
-    "MBLNR": 5049000905,
-    "MJAHR": 2019
-  },
-  {
-    "Page of batch where document starts": 24,
-    "MBLNR": 5049000911,
-    "MJAHR": 2019
-  },
-  {
-    "Page of batch where document starts": 26,
-    "MBLNR": 5049000920,
-    "MJAHR": 2019
-  },
-  {
-    "Page of batch where document starts": 27,
-    "MBLNR": 5049000927,
-    "MJAHR": 2020
-  },
-  {
-    "Page of batch where document starts": 28,
-    "MBLNR": 5049000937,
-    "MJAHR": 2020
-  },
-  {
-    "Page of batch where document starts": 29,
-    "MBLNR": 5049000948,
-    "MJAHR": 2020
-  },
-  {
-    "Page of batch where document starts": 30,
-    "MBLNR": 5049000959,
-    "MJAHR": 2020
-  },
-  {
-    "Page of batch where document starts": 31,
-    "MBLNR": 5049000969,
-    "MJAHR": 2020
-  },
-  {
-    "Page of batch where document starts": 32,
-    "MBLNR": 5049000976,
-    "MJAHR": 2020
-  },
-  {
-    "Page of batch where document starts": 33,
-    "MBLNR": 5049000979,
-    "MJAHR": 2021
-  },
-  {
-    "Page of batch where document starts": 34,
-    "MBLNR": 5049000984,
-    "MJAHR": 2021
-  },
-  {
-    "Page of batch where document starts": 35,
-    "MBLNR": 5049000992,
-    "MJAHR": 2021
-  },
-  {
-    "Page of batch where document starts": 36,
-    "MBLNR": 5049001004,
-    "MJAHR": 2021
-  },
-  {
-    "Page of batch where document starts": 37,
-    "MBLNR": 5049001027,
-    "MJAHR": 2021
-  },
-  {
-    "Page of batch where document starts": 38,
-    "MBLNR": 5049001032,
-    "MJAHR": 2021
-  },
-  {
-    "Page of batch where document starts": 39,
-    "MBLNR": 5049001051,
-    "MJAHR": 2021
-  },
-  {
-    "Page of batch where document starts": 40,
-    "MBLNR": 5049001059,
-    "MJAHR": 2021
-  },
-  {
-    "Page of batch where document starts": 41,
-    "MBLNR": 5049001068,
-    "MJAHR": 2021
-  },
-  {
-    "Page of batch where document starts": 42,
-    "MBLNR": 5049001071,
-    "MJAHR": 2021
-  },
-  {
-    "Page of batch where document starts": 43,
-    "MBLNR": 5049001075,
-    "MJAHR": 2021
-  },
-  {
-    "Page of batch where document starts": 44,
-    "MBLNR": 5049001086,
-    "MJAHR": 2021
-  },
-  {
-    "Page of batch where document starts": 45,
-    "MBLNR": 5049001093,
-    "MJAHR": 2021
-  },
-  {
-    "Page of batch where document starts": 46,
-    "MBLNR": 5049001105,
-    "MJAHR": 2021
-  },
-  {
-    "Page of batch where document starts": 47,
-    "MBLNR": 5049001109,
-    "MJAHR": 2021
-  },
-  {
-    "Page of batch where document starts": 48,
-    "MBLNR": 5049001115,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 50,
-    "MBLNR": 5049001126,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 52,
-    "MBLNR": 5049001135,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 53,
-    "MBLNR": 5049001139,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 54,
-    "MBLNR": 5049001150,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 55,
-    "MBLNR": 5049001165,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 56,
-    "MBLNR": 5049001173,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 57,
-    "MBLNR": 5049001181,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 58,
-    "MBLNR": 5049001192,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 59,
-    "MBLNR": 5049001197,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 61,
-    "MBLNR": 5049001207,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 62,
-    "MBLNR": 5049001211,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 63,
-    "MBLNR": 5049001216,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 64,
-    "MBLNR": 5049001225,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 65,
-    "MBLNR": 5049001236,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 66,
-    "MBLNR": 5049001243,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 68,
-    "MBLNR": 5049001248,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 69,
-    "MBLNR": 5049001275,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 70,
-    "MBLNR": 5049001266,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 71,
-    "MBLNR": 5049001283,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 72,
-    "MBLNR": 5049001292,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 73,
-    "MBLNR": 5049001300,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 74,
-    "MBLNR": 5049001307,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 75,
-    "MBLNR": 5049001310,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 77,
-    "MBLNR": 5049001320,
-    "MJAHR": 2022
-  },
-  {
-    "Page of batch where document starts": 78,
-    "MBLNR": 5049001331,
-    "MJAHR": 2023
-  },
-  {
-    "Page of batch where document starts": 80,
-    "MBLNR": 5049001343,
-    "MJAHR": 2023
-  },
-  {
-    "Page of batch where document starts": 81,
-    "MBLNR": 5049001354,
-    "MJAHR": 2023
-  },
-  {
-    "Page of batch where document starts": 83,
-    "MBLNR": 5049001363,
-    "MJAHR": 2023
-  },
-  {
-    "Page of batch where document starts": 84,
-    "MBLNR": 5049001372,
-    "MJAHR": 2023
-  },
-  {
-    "Page of batch where document starts": 85,
-    "MBLNR": 5049001381,
-    "MJAHR": 2023
-  },
-  {
-    "Page of batch where document starts": 86,
-    "MBLNR": 5049001396,
-    "MJAHR": 2023
-  },
-  {
-    "Page of batch where document starts": 88,
-    "MBLNR": 5049001407,
-    "MJAHR": 2023
-  },
-  {
-    "Page of batch where document starts": 89,
-    "MBLNR": 5049001387,
-    "MJAHR": 2023
-  },
-  {
-    "Page of batch where document starts": 90,
-    "MBLNR": 5049001417,
-    "MJAHR": 2023
-  },
-  {
-    "Page of batch where document starts": 91,
-    "MBLNR": 5049001420,
-    "MJAHR": 2023
-  },
-  {
-    "Page of batch where document starts": 92,
-    "MBLNR": 5049001430,
-    "MJAHR": 2023
-  },
-  {
-    "Page of batch where document starts": 93,
-    "MBLNR": 5049001439,
-    "MJAHR": 2023
-  },
-  {
-    "Page of batch where document starts": 94,
-    "MBLNR": 5049001448,
-    "MJAHR": 2023
-  },
-  {
-    "Page of batch where document starts": 95,
-    "MBLNR": 5049001457,
-    "MJAHR": 2023
-  },
-  {
-    "Page of batch where document starts": 97,
-    "MBLNR": 5049001472,
-    "MJAHR": 2024
-  },
-  {
-    "Page of batch where document starts": 98,
-    "MBLNR": 5049001479,
-    "MJAHR": 2024
-  },
-  {
-    "Page of batch where document starts": 99,
-    "MBLNR": 5049001493,
-    "MJAHR": 2024
-  },
-  {
-    "Page of batch where document starts": 101,
-    "MBLNR": 5049001500,
-    "MJAHR": 2024
-  }
-]
->>>>>>> 5d7c50728d86ad5fdbacb65759257f4e7d31a1a6
