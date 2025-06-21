@@ -19,9 +19,11 @@ def load_sap_data(sap_json_path):
 
 
 
+used_entries = set()  # global oder übergebbar
+
 def find_sap_entry(pdf_path, sap_data):
     filename = os.path.basename(pdf_path).lower()
-    # Extrahiere Datumsteil vom Dateinamen, z. B. 20170303_...
+
     try:
         date_from_filename = filename.split("_")[0]
         date_obj = datetime.strptime(date_from_filename, "%Y%m%d")
@@ -30,7 +32,10 @@ def find_sap_entry(pdf_path, sap_data):
         print(f"⚠️ Fehler beim Extrahieren des Datums aus {filename}: {e}")
         return None
 
-    for entry in sap_data:
+    for idx, entry in enumerate(sap_data):
+        if idx in used_entries:
+            continue
+
         delivery_date_raw = entry.get("Delivery Note Date", "")
         try:
             delivery_date = datetime.fromisoformat(delivery_date_raw.replace("Z", "")).strftime("%Y-%m-%d")
@@ -38,12 +43,15 @@ def find_sap_entry(pdf_path, sap_data):
             continue
 
         if delivery_date == date_key:
+            used_entries.add(idx)
             return {
                 "MBLNR": entry.get("MBLNR"),
                 "MJAHR": entry.get("MJAHR")
             }
 
+    print(f"⚠️ Keine freie SAP-Zeile mit Datum {date_key} für Datei: {filename}")
     return None
+
 
 
 def process_batch_folder(batch_folder_path, sap_json_path, output_pdf_path, output_json_path):
