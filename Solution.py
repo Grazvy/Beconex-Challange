@@ -1,6 +1,7 @@
 import os
 import json
 from PyPDF2 import PdfMerger, PdfReader
+from datetime import datetime
 
 def get_pdf_page_count(pdf_path):
     try:
@@ -10,40 +11,40 @@ def get_pdf_page_count(pdf_path):
         print(f"Fehler beim Lesen von {pdf_path}: {e}")
         return 0
 
-def extract_text_from_pdf(pdf_path):
-    try:
-        reader = PdfReader(pdf_path)
-        full_text = ""
-        for page in reader.pages:
-            full_text += page.extract_text() or ""
-        return full_text.lower()
-    except Exception as e:
-        print(f"Fehler beim Extrahieren von Text aus {pdf_path}: {e}")
-        return ""
+
 
 def load_sap_data(sap_json_path):
     with open(sap_json_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
+
+
 def find_sap_entry(pdf_path, sap_data):
-    text = extract_text_from_pdf(pdf_path)
+    filename = os.path.basename(pdf_path).lower()
+    # Extrahiere Datumsteil vom Dateinamen, z. B. 20170303_...
+    try:
+        date_from_filename = filename.split("_")[0]
+        date_obj = datetime.strptime(date_from_filename, "%Y%m%d")
+        date_key = date_obj.strftime("%Y-%m-%d")
+    except Exception as e:
+        print(f"⚠️ Fehler beim Extrahieren des Datums aus {filename}: {e}")
+        return None
 
     for entry in sap_data:
-        delivery_note = str(entry.get("Delivery Note Number", "")).lower()
-        vendor = str(entry.get("Vendor - Name 1", "")).lower()
+        delivery_date_raw = entry.get("Delivery Note Date", "")
+        try:
+            delivery_date = datetime.fromisoformat(delivery_date_raw.replace("Z", "")).strftime("%Y-%m-%d")
+        except Exception:
+            continue
 
-        if delivery_note and delivery_note in text:
-            return {
-                "MBLNR": entry.get("MBLNR"),
-                "MJAHR": entry.get("MJAHR")
-            }
-        elif vendor and vendor in text:
+        if delivery_date == date_key:
             return {
                 "MBLNR": entry.get("MBLNR"),
                 "MJAHR": entry.get("MJAHR")
             }
 
     return None
+
 
 def process_batch_folder(batch_folder_path, sap_json_path, output_pdf_path, output_json_path):
     sap_data = load_sap_data(sap_json_path)
