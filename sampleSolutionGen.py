@@ -65,6 +65,11 @@ def get_solution(batch_folder_path, sap_json_path="data/SAP_data.json"):
             })
         else:
             print(f"⚠️ Keine Zuordnung für: {pdf_file}")
+            output_json.append({
+                "Page of batch where document starts": current_page,
+                "MBLNR": -1, 
+                "MJAHR": -1 
+            })
 
         current_page += num_pages
 
