@@ -21,7 +21,7 @@ import calendar
 # PDF_PATH_Batch = "batch.pdf"  # Default batch PDF for processing multiple documents
 
 
-PDF_PATH = "data/batch_1_2017_2018.pdf"
+PDF_PATH = "solution/batch_5_2022_2_merged.pdf"
 REFERENCE_JSON_PATH = "data/SAP_data.json"
 LOG_DIR = "debug_logs"
 OUTPUT_JSON = "output.json"
@@ -475,6 +475,8 @@ def process_pdf_pagewise(pdf_path, references):
                     
                     summed = []
                     for mblnr in set(prev_map) | set(current_map):
+                        if current_map.get(mblnr, 0) < 300:
+                            continue
                         s = prev_map.get(mblnr, 0) + current_map.get(mblnr, 0)
                         summed.append((s, mblnr))
                         if SHOW_RANKING_FULL:
@@ -497,6 +499,8 @@ def process_pdf_pagewise(pdf_path, references):
                     current_map = to_score_map(top_k_matches(references, current_text, RETURN_TOP_K, 300))
                     summed = []
                     for mblnr in set(next_map) | set(current_map):
+                        if current_map.get(mblnr, 0) < 300:
+                            continue  # skip low-confidence matches
                         s = next_map.get(mblnr, 0) + current_map.get(mblnr, 0)
                         summed.append((s, mblnr))
                         if SHOW_RANKING_FULL:
@@ -521,9 +525,10 @@ def process_pdf_pagewise(pdf_path, references):
                     mjahr = mjahr_b
                     
                 else:
+                    print(f"⚠️ No high-confidence matches on page {idx}. Falling back to regex or previous match…")
                     # fallback to regex or previous
-                    mblnr = regex_hits.get('MBLNR', last_mblnr)
-                    mjahr = regex_hits.get('MJAHR', last_mjahr)
+                    mblnr = regex_hits.get('MBLNR', -1)
+                    mjahr = regex_hits.get('MJAHR', -1)
 
         page_info.append({'page': idx, 'MBLNR': mblnr, 'MJAHR': mjahr})
         last_mblnr, last_mjahr = mblnr, mjahr
@@ -537,13 +542,13 @@ def process_pdf_pagewise(pdf_path, references):
         cur_mjahr = current['MJAHR']
         for info in page_info[1:]:
             if info['MBLNR'] != cur_mblnr:
-                blocks.append({'start_page': start, 'end_page': info['page']-1,
+                blocks.append({'Page of batch where document starts': start,
                                'MBLNR': cur_mblnr, 'MJAHR': cur_mjahr})
                 start = info['page']
                 cur_mblnr = info['MBLNR']
                 cur_mjahr = info['MJAHR']
         # last block
-        blocks.append({'start_page': start, 'end_page': page_info[-1]['page'],
+        blocks.append({'Page of batch where document starts': start,
                        'MBLNR': cur_mblnr, 'MJAHR': cur_mjahr})
 
     log_debug_output(os.path.basename(pdf_path)+".log.txt",
