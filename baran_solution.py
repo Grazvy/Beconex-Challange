@@ -148,7 +148,7 @@ def extract_text_from_doc(
                 raw = page.get_text().strip()
 
                 # 2) Fallback to OCR if needed
-                if not raw and use_ocr:
+                if use_ocr:
                     pix = page.get_pixmap(dpi=ocr_dpi)
                     img = Image.open(io.BytesIO(pix.tobytes()))
                     raw = pytesseract.image_to_string(img).strip()
