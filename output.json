@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "batch_1_2017_2018": [
     {
@@ -1226,3 +1227,422 @@
     }
   ]
 }
+=======
+[
+  {
+    "Page of batch where document starts": 1,
+    "MBLNR": 5049000775,
+    "MJAHR": 2017
+  },
+  {
+    "Page of batch where document starts": 2,
+    "MBLNR": 5049000781,
+    "MJAHR": 2017
+  },
+  {
+    "Page of batch where document starts": 3,
+    "MBLNR": 5049000798,
+    "MJAHR": 2017
+  },
+  {
+    "Page of batch where document starts": 5,
+    "MBLNR": 5049000791,
+    "MJAHR": 2017
+  },
+  {
+    "Page of batch where document starts": 6,
+    "MBLNR": 5049000806,
+    "MJAHR": 2018
+  },
+  {
+    "Page of batch where document starts": 8,
+    "MBLNR": 5049000818,
+    "MJAHR": 2018
+  },
+  {
+    "Page of batch where document starts": 10,
+    "MBLNR": 5049000823,
+    "MJAHR": 2018
+  },
+  {
+    "Page of batch where document starts": 11,
+    "MBLNR": 5049000832,
+    "MJAHR": 2018
+  },
+  {
+    "Page of batch where document starts": 13,
+    "MBLNR": 5049000841,
+    "MJAHR": 2018
+  },
+  {
+    "Page of batch where document starts": 15,
+    "MBLNR": 5049000847,
+    "MJAHR": 2018
+  },
+  {
+    "Page of batch where document starts": 16,
+    "MBLNR": 5049000858,
+    "MJAHR": 2018
+  },
+  {
+    "Page of batch where document starts": 17,
+    "MBLNR": 5049000875,
+    "MJAHR": 2019
+  },
+  {
+    "Page of batch where document starts": 18,
+    "MBLNR": 5049000884,
+    "MJAHR": 2019
+  },
+  {
+    "Page of batch where document starts": 20,
+    "MBLNR": 5049000889,
+    "MJAHR": 2019
+  },
+  {
+    "Page of batch where document starts": 21,
+    "MBLNR": -1,
+    "MJAHR": -1
+  },
+  {
+    "Page of batch where document starts": 23,
+    "MBLNR": 5049000905,
+    "MJAHR": 2019
+  },
+  {
+    "Page of batch where document starts": 24,
+    "MBLNR": 5049000911,
+    "MJAHR": 2019
+  },
+  {
+    "Page of batch where document starts": 26,
+    "MBLNR": 5049000920,
+    "MJAHR": 2019
+  },
+  {
+    "Page of batch where document starts": 27,
+    "MBLNR": 5049000927,
+    "MJAHR": 2020
+  },
+  {
+    "Page of batch where document starts": 28,
+    "MBLNR": 5049000937,
+    "MJAHR": 2020
+  },
+  {
+    "Page of batch where document starts": 29,
+    "MBLNR": 5049000948,
+    "MJAHR": 2020
+  },
+  {
+    "Page of batch where document starts": 30,
+    "MBLNR": 5049000959,
+    "MJAHR": 2020
+  },
+  {
+    "Page of batch where document starts": 31,
+    "MBLNR": 5049000969,
+    "MJAHR": 2020
+  },
+  {
+    "Page of batch where document starts": 32,
+    "MBLNR": 5049000976,
+    "MJAHR": 2020
+  },
+  {
+    "Page of batch where document starts": 33,
+    "MBLNR": 5049000979,
+    "MJAHR": 2021
+  },
+  {
+    "Page of batch where document starts": 34,
+    "MBLNR": 5049000984,
+    "MJAHR": 2021
+  },
+  {
+    "Page of batch where document starts": 35,
+    "MBLNR": 5049000992,
+    "MJAHR": 2021
+  },
+  {
+    "Page of batch where document starts": 36,
+    "MBLNR": 5049001004,
+    "MJAHR": 2021
+  },
+  {
+    "Page of batch where document starts": 37,
+    "MBLNR": 5049001027,
+    "MJAHR": 2021
+  },
+  {
+    "Page of batch where document starts": 38,
+    "MBLNR": 5049001032,
+    "MJAHR": 2021
+  },
+  {
+    "Page of batch where document starts": 39,
+    "MBLNR": 5049001051,
+    "MJAHR": 2021
+  },
+  {
+    "Page of batch where document starts": 40,
+    "MBLNR": 5049001059,
+    "MJAHR": 2021
+  },
+  {
+    "Page of batch where document starts": 41,
+    "MBLNR": 5049001068,
+    "MJAHR": 2021
+  },
+  {
+    "Page of batch where document starts": 42,
+    "MBLNR": 5049001071,
+    "MJAHR": 2021
+  },
+  {
+    "Page of batch where document starts": 43,
+    "MBLNR": 5049001075,
+    "MJAHR": 2021
+  },
+  {
+    "Page of batch where document starts": 44,
+    "MBLNR": 5049001086,
+    "MJAHR": 2021
+  },
+  {
+    "Page of batch where document starts": 45,
+    "MBLNR": 5049001093,
+    "MJAHR": 2021
+  },
+  {
+    "Page of batch where document starts": 46,
+    "MBLNR": 5049001105,
+    "MJAHR": 2021
+  },
+  {
+    "Page of batch where document starts": 47,
+    "MBLNR": 5049001109,
+    "MJAHR": 2021
+  },
+  {
+    "Page of batch where document starts": 48,
+    "MBLNR": 5049001115,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 50,
+    "MBLNR": 5049001126,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 52,
+    "MBLNR": 5049001135,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 53,
+    "MBLNR": 5049001139,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 54,
+    "MBLNR": 5049001150,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 55,
+    "MBLNR": 5049001165,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 56,
+    "MBLNR": 5049001173,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 57,
+    "MBLNR": 5049001181,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 58,
+    "MBLNR": 5049001192,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 59,
+    "MBLNR": 5049001197,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 61,
+    "MBLNR": 5049001207,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 62,
+    "MBLNR": 5049001211,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 63,
+    "MBLNR": 5049001216,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 64,
+    "MBLNR": 5049001225,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 65,
+    "MBLNR": 5049001236,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 66,
+    "MBLNR": 5049001243,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 68,
+    "MBLNR": 5049001248,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 69,
+    "MBLNR": 5049001275,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 70,
+    "MBLNR": 5049001266,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 71,
+    "MBLNR": 5049001283,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 72,
+    "MBLNR": 5049001292,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 73,
+    "MBLNR": 5049001300,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 74,
+    "MBLNR": 5049001307,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 75,
+    "MBLNR": 5049001310,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 77,
+    "MBLNR": 5049001320,
+    "MJAHR": 2022
+  },
+  {
+    "Page of batch where document starts": 78,
+    "MBLNR": 5049001331,
+    "MJAHR": 2023
+  },
+  {
+    "Page of batch where document starts": 80,
+    "MBLNR": 5049001343,
+    "MJAHR": 2023
+  },
+  {
+    "Page of batch where document starts": 81,
+    "MBLNR": 5049001354,
+    "MJAHR": 2023
+  },
+  {
+    "Page of batch where document starts": 83,
+    "MBLNR": 5049001363,
+    "MJAHR": 2023
+  },
+  {
+    "Page of batch where document starts": 84,
+    "MBLNR": 5049001372,
+    "MJAHR": 2023
+  },
+  {
+    "Page of batch where document starts": 85,
+    "MBLNR": 5049001381,
+    "MJAHR": 2023
+  },
+  {
+    "Page of batch where document starts": 86,
+    "MBLNR": 5049001396,
+    "MJAHR": 2023
+  },
+  {
+    "Page of batch where document starts": 88,
+    "MBLNR": 5049001407,
+    "MJAHR": 2023
+  },
+  {
+    "Page of batch where document starts": 89,
+    "MBLNR": 5049001387,
+    "MJAHR": 2023
+  },
+  {
+    "Page of batch where document starts": 90,
+    "MBLNR": 5049001417,
+    "MJAHR": 2023
+  },
+  {
+    "Page of batch where document starts": 91,
+    "MBLNR": 5049001420,
+    "MJAHR": 2023
+  },
+  {
+    "Page of batch where document starts": 92,
+    "MBLNR": 5049001430,
+    "MJAHR": 2023
+  },
+  {
+    "Page of batch where document starts": 93,
+    "MBLNR": 5049001439,
+    "MJAHR": 2023
+  },
+  {
+    "Page of batch where document starts": 94,
+    "MBLNR": 5049001448,
+    "MJAHR": 2023
+  },
+  {
+    "Page of batch where document starts": 95,
+    "MBLNR": 5049001457,
+    "MJAHR": 2023
+  },
+  {
+    "Page of batch where document starts": 97,
+    "MBLNR": 5049001472,
+    "MJAHR": 2024
+  },
+  {
+    "Page of batch where document starts": 98,
+    "MBLNR": 5049001479,
+    "MJAHR": 2024
+  },
+  {
+    "Page of batch where document starts": 99,
+    "MBLNR": 5049001493,
+    "MJAHR": 2024
+  },
+  {
+    "Page of batch where document starts": 101,
+    "MBLNR": 5049001500,
+    "MJAHR": 2024
+  }
+]
+>>>>>>> 5d7c50728d86ad5fdbacb65759257f4e7d31a1a6
