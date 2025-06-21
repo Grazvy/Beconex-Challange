@@ -73,8 +73,8 @@ def process_batch_folder(batch_folder_path, sap_json_path, output_pdf_path, outp
         if sap_entry:
             output_json.append({
                 "Page of batch where document starts": current_page,
-                "MBLNR": sap_entry["MBLNR"],
-                "MJAHR": sap_entry["MJAHR"]
+                "MBLNR": sap_entry["MBLNR"] if sap_entry else None,
+                "MJAHR": sap_entry["MJAHR"] if sap_entry else None
             })
         else:
             print(f"⚠️ Keine Zuordnung für: {pdf_file}")
@@ -96,7 +96,7 @@ def process_batch_folder(batch_folder_path, sap_json_path, output_pdf_path, outp
 
 if __name__ == "__main__":
     # Beispielkonfiguration
-    batch_dir = "data/batch_7_2023_2024"
+    batch_dir = "data/batch_2_2019_2020"
     sap_json = "data/SAP_data.json"
     
     # Extract batch_id from batch_dir
