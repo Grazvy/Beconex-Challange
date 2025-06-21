@@ -186,6 +186,7 @@ def extract_known_fields(text):
             extracted[label] = match.group(2)
     return extracted
 
+# 2023-06-26T00:00:00.000
 def date_variants(iso_datetime_str):
     """
     Given e.g. "2017-06-29T00:00:00.000",
