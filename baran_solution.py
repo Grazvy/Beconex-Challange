@@ -18,6 +18,8 @@ from typing import List
 import fitz  # PyMuPDF
 from PIL import Image
 import pytesseract
+from itertools import product
+from unidecode import unidecode
 
 
 # ================================
@@ -30,7 +32,8 @@ import pytesseract
 # PDF_PATH_Batch = "batch.pdf"  # Default batch PDF for processing multiple documents
 
 
-PDF_PATH = "data/full.pdf"  # Default PDF for single document processing
+# PDF_PATH = "data/batch_4_2022_1"
+PDF_PATH = "solution/superbatch_merged.pdf"
 REFERENCE_JSON_PATH = "data/SAP_data.json"
 LOG_DIR = "debug_logs"
 OUTPUT_JSON = "output.json"
@@ -42,7 +45,7 @@ USE_FIELD_WEIGHTS = True
 USE_NORMALIZATION = True
 RETURN_TOP_K = 3
 MIN_MATCH_FIELDS = 2
-CONFIDENCE_THRESHOLD = 800
+CONFIDENCE_THRESHOLD = 900
 
 SHOW_PAGE_TEXT = False
 SHOW_REGEX_HINTS = True
@@ -56,8 +59,8 @@ MIN_WINDOW_SIZE = 2
 FIELD_WEIGHTS = {
     "MBLNR": 3,
     "MJAHR": 2,
-    "Purchase Order Number": 2,
-    "Delivery Note Number": 3,
+    "Purchase Order Number": 5,
+    "Delivery Note Number": 5,
     "Delivery Note Date": 2,
     "Vendor - Name 1": 3,
     "Vendor - Name 2": 1,
@@ -120,7 +123,7 @@ def extract_text_from_doc(
     path: str,
     use_ocr: bool = True,
     show_page_text: bool = False,
-    ocr_dpi: int = 300
+    ocr_dpi: int = 100
 ) -> List[str]:
     """
     Extracts text from each page of a PDF document.
@@ -145,25 +148,33 @@ def extract_text_from_doc(
         for i, page in enumerate(doc, start=1):
             try:
                 # 1) Native text extraction
-                raw = page.get_text().strip()
+                raw = page.get_text("text").strip()
 
                 # 2) Fallback to OCR if needed
-                if use_ocr:
+                if use_ocr and not raw:
                     pix = page.get_pixmap(dpi=ocr_dpi)
                     img = Image.open(io.BytesIO(pix.tobytes()))
                     raw = pytesseract.image_to_string(img).strip()
 
-                # Normalize
+                # 3) Find all 13‐digit sequences
+                ids = re.findall(r"\b\d{13}\b", raw)
+
+                # 4) Normalize text if you want lowercase
                 text = raw.lower()
+
+                # 5) Combine text + IDs into one string
+                combined = text
+                if ids:
+                    combined += "\n\n[Found IDs]: " + ", ".join(ids)
+
             except Exception as e:
-                # Log & continue
                 print(f"[Warning] page {i} extraction failed: {e}")
-                text = ""
-            # print(f"{text}")
-            text_pages.append(text)
+                combined = ""
+            
+            text_pages.append(combined)
 
             if show_page_text:
-                print(f"--- Page {i} ---\n{text}\n--------------------")
+                print(f"--- Page {i} ---\n{combined}\n--------------------")
 
     return text_pages
 
@@ -219,6 +230,15 @@ def extract_known_fields(text):
     return extracted
 
 # 2023-06-26T00:00:00.000
+GERMAN_MONTHS = [
+        "Januar", "Februar", "März", "April", "Mai", "Juni",
+        "Juli", "August", "September", "Oktober", "November", "Dezember"
+    ]
+GERMAN_MONTHS_ABBR = [
+    "Jan", "Feb", "Mär", "Apr", "Mai", "Jun",
+    "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"
+]
+
 def date_variants(iso_datetime_str):
     """
     Given e.g. "2017-06-29T00:00:00.000",
@@ -228,47 +248,105 @@ def date_variants(iso_datetime_str):
     day, mon, year = dt.day, dt.month, dt.year
     # numeric
     yield f"{day:02d}.{mon:02d}.{year}"
-    yield f"{day:02d}.{mon:02d}. {year}"
+    yield f"{day:02d}.{mon:02d},{year}"
+    yield f"{day:02d}.{mon:02d} {year}"
     yield f"{day:02d}-{mon:02d}-{year}"
     yield f"{day:02d}/{mon:02d}/{str(year)[2:]}"  # two-digit year
-    # German month‐name with dot
+    # english month‐name with dot in german style
     yield f"{day}. {calendar.month_name[mon]} {year}"
     yield f"{day}. {calendar.month_name[mon][:3]} {year}"
-    # True German month names
-    yield f"{day}. {"Januar"} {year}"
-    
-    
-    # English month‐day
-    yield f"{calendar.month_name[mon]} {day}, {year}"
-    yield f"{calendar.month_name[mon][:3]} {day}, {year}"
+    # German month‐name with dot
+    yield f"{day}. {GERMAN_MONTHS[mon-1]} {year}"
+    yield f"{day}. {GERMAN_MONTHS_ABBR[mon-1]} {year}"
     # Plain month‐year combos
-    yield f"{calendar.month_name[mon]} {year}"
-    yield f"{calendar.month_name[mon][:3]} {year}"
-    # For this format 2017-06-28
-    yield f"{year}-{mon:02d}-{day:02d}"  # ISO format
+    yield f"{GERMAN_MONTHS[mon-1]} {year}"
+    yield f"{GERMAN_MONTHS_ABBR[mon-1]} {year}"
+    # 2017-06-28
+    yield f"{year}-{mon:02d}-{day:02d}"
+
     
-    
+
+TOKEN_MAP = {
+    # street suffixes
+    'straße':    ['strasse', 'str.', 'str'],
+    'strasse':   ['straße', 'str.', 'str'],
+    'str.':      ['straße', 'strasse', 'str'],
+    'str':       ['straße', 'strasse', 'str.'],
+
+    'platz':     ['pl.', 'pl'],
+    'pl.':       ['platz', 'pl'],
+    'pl':        ['platz', 'pl.'],
+
+    'allee':     ['al.', 'al'],
+    'al.':       ['allee', 'al'],
+    'al':        ['allee', 'al.'],
+
+    'weg':       ['weg.'],
+    'weg.':      ['weg'],
+
+    'ring':      [],
+
+    # numeric markers
+    'no':        ['nr', '#'],
+    'nr':        ['no', '#'],
+    '#':         ['no', 'nr'],
+
+    # directional
+    'nord':      ['north', 'n'],
+    'north':     ['nord', 'n'],
+    'n':         ['nord', 'north'],
+
+    'sued':      ['south', 's'],
+    'south':     ['sued', 's'],
+    's':         ['sued', 'south'],
+
+    # etc...
+}
+
+SEPARATORS = ['', ' ', '-']
+
+def normalize_address(text: str) -> str:
+    """Strip, lowercase, remove accents, collapse whitespace/hyphens."""
+    txt = unidecode(text).lower().strip()
+    return re.sub(r'[\s\-]+', ' ', txt)
     
 # Tino-Schwierzina-StraBe 86
-def address_variants(address):
+def address_variants(address: str):
     """
-    Generates common variants of an address string for fuzzy matching.
-
-    Args:
-        address (str): The input address string.
-
-    Returns:
-        List[str]: A list of normalized address variants.
+    Yield every reasonable variant of an address by:
+      1. Normalizing and splitting into tokens.
+      2. For each token, substituting in all mapped variants.
+      3. Re-joining tokens with every combination of '', ' ' or '-'.
+      4. Filtering short results and deduplicating.
     """
-    address = normalize(address)
-    # Replace common abbreviations
-    address = address.replace("straße", "str.")
-    address = address.replace("strasse", "str.")
-    # Add common variations
-    yield address
-    yield address.replace("str.", "straße")
-    yield address.replace("str.", "strasse")
-    yield address.replace("straße", "strasse")
+    norm = normalize_address(address)
+    tokens = norm.split()  # simple split on spaces
+
+    # build list of variant-lists for each token
+    token_variants = []
+    for tok in tokens:
+        alts = TOKEN_MAP.get(tok, [])
+        # always include the original normalized token
+        token_variants.append([tok] + alts)
+
+    seen = set()
+    # for each choice of one variant per token...
+    for choice in product(*token_variants):
+        # and for each way of joining them...
+        for seps in product(SEPARATORS, repeat=len(choice)-1):
+            parts = []
+            for i, tok in enumerate(choice):
+                parts.append(tok)
+                if i < len(seps):
+                    parts.append(seps[i])
+            candidate = ''.join(parts)
+            if len(candidate) < MIN_SEGMENT_LENGTH:
+                continue
+            seen.add(candidate)
+
+    # yield in stable order
+    for variant in sorted(seen):
+        yield variant
     
 
 def generate_signature(entry):
@@ -305,7 +383,10 @@ def generate_signature(entry):
                 continue
             val = normalize(str(val)) if USE_NORMALIZATION else str(val)
             words = val.split()
-            for n in range(1, min(4, len(words)) + 1):
+            start = 1
+            if key == "Delivery Note Number":
+                start = len(words)
+            for n in range(start, min(4, len(words)) + 1):
                 for i in range(len(words) - n + 1):
                     segment = " ".join(words[i:i+n])
                     if any(tok in STOP_WORDS for tok in segment.split()) or len(segment) < MIN_SEGMENT_LENGTH:
@@ -584,7 +665,7 @@ def process_pdf_pagewise(pdf_path, references):
         cur_mblnr = current['MBLNR']
         cur_mjahr = current['MJAHR']
         for info in page_info[1:]:
-            if info['MBLNR'] != cur_mblnr:
+            if info['MBLNR'] != cur_mblnr or cur_mblnr == -1:
                 blocks.append({'Page of batch where document starts': start,
                                'MBLNR': cur_mblnr, 'MJAHR': cur_mjahr})
                 start = info['page']
@@ -643,10 +724,10 @@ def main_test():
         
         texts = []
 
-        # Detect and report total page count if possible
-        detected_count = detect_page_count(pages)
-        if detected_count:
-            print("📌 Detected Page Count from text:", detected_count)
+        # # Detect and report total page count if possible
+        # detected_count = detect_page_count(pages)
+        # if detected_count:
+        #     print("📌 Detected Page Count from text:", detected_count)
             
         blacklist = []
 
