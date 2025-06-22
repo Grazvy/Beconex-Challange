@@ -247,6 +247,8 @@ def date_variants(iso_datetime_str):
     # For this format 2017-06-28
     yield f"{year}-{mon:02d}-{day:02d}"  # ISO format
     
+    
+    
 # Tino-Schwierzina-StraBe 86
 def address_variants(address):
     """
