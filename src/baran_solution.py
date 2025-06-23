@@ -30,8 +30,8 @@ import pytesseract
 # PDF_PATH_Batch = "batch.pdf"  # Default batch PDF for processing multiple documents
 
 
-PDF_PATH = "data/full.pdf"  # Default PDF for single document processing
-REFERENCE_JSON_PATH = "data/SAP_data.json"
+PDF_PATH = "../data/full.pdf"  # Default PDF for single document processing
+REFERENCE_JSON_PATH = "../data/SAP_data.json"
 LOG_DIR = "debug_logs"
 OUTPUT_JSON = "output.json"
 

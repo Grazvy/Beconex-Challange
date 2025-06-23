@@ -6,7 +6,7 @@ import json
 import os
 
 # Configuration
-PDF_PATH = "solution/superbatch_merged.pdf"
+PDF_PATH = "../data/superbatch_merged.pdf"
 REFERENCE_JSON = "data/SAP_data.json"
 OUTPUT_JSON = "output.json"
 # Minimum scores for confident matches
